@@ -175,31 +175,21 @@ function showAlert(message, type = 'info') {
 }
 
 // ============================================
-// WHATSAPP INTEGRATION
+// WHATSAPP FLOATING BUTTON
 // ============================================
 
 const whatsappBtn = document.getElementById('whatsapp-btn');
 
-whatsappBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    
-    // Replace with your actual WhatsApp number
-    const whatsappNumber = '971XXXXXXXXX'; // Format: country code + number without +
-    const message = 'Hello! I am interested in your technical services. Can you help me?';
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-    
-    window.open(whatsappUrl, '_blank');
-});
+// Floating WhatsApp button hover effects
+if (whatsappBtn) {
+    whatsappBtn.addEventListener('mouseenter', () => {
+        whatsappBtn.style.transform = 'scale(1.15)';
+    });
 
-// Add tooltip to WhatsApp button
-whatsappBtn.addEventListener('mouseenter', () => {
-    whatsappBtn.style.transform = 'scale(1.15)';
-});
-
-whatsappBtn.addEventListener('mouseleave', () => {
-    whatsappBtn.style.transform = 'scale(1)';
-});
+    whatsappBtn.addEventListener('mouseleave', () => {
+        whatsappBtn.style.transform = 'scale(1)';
+    });
+}
 
 // ============================================
 // SCROLL ANIMATIONS
@@ -218,8 +208,8 @@ function observeElements() {
         rootMargin: '0px 0px -100px 0px'
     });
     
-    // Observe service cards and reason cards
-    const elements = document.querySelectorAll('.service-card, .reason-card, .stat, .info-item');
+    // Observe service cards, reason cards, contact cards and other elements
+    const elements = document.querySelectorAll('.service-card, .reason-card, .stat, .contact-card');
     elements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -384,4 +374,5 @@ updateFooterYear();
 
 console.log('%c Welcome to MISHAL AL NOOR TECHNICAL SERVICES', 'color: #0ea5e9; font-size: 16px; font-weight: bold;');
 console.log('%c Professional Technical Solutions in Dubai, UAE', 'color: #1e3a8a; font-size: 14px;');
-console.log('%c https://github.com/mishalalnoortechnical-ux/mishal-al-noor-website', 'color: #10b981; font-size: 12px;');
+console.log('%c WhatsApp: +971 50 148 5297 | Phone: +971 50 148 5297 | Email: mishalalnoortec@gmail.com', 'color: #10b981; font-size: 12px;');
+console.log('%c https://github.com/mishalalnoortechnical-ux/mishal-al-noor-website', 'color: #f97316; font-size: 12px;');
