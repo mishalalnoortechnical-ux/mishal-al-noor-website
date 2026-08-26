@@ -215,45 +215,61 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="info-text">
-                            <h4>Location</h4>
-                            <p>Dubai, United Arab Emirates</p>
-                        </div>
+            
+            <!-- Quick Contact Cards -->
+            <div class="contact-cards-grid">
+                <!-- Phone Card -->
+                <a href="tel:+971XXXXXXXXX" class="contact-card phone-card">
+                    <div class="card-icon">
+                        <i class="fas fa-phone"></i>
                     </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="info-text">
-                            <h4>Phone</h4>
-                            <p>+971 4 XXXX XXXX</p>
-                        </div>
+                    <div class="card-content">
+                        <h3>Phone</h3>
+                        <p class="placeholder">+971 4 XXXX XXXX</p>
+                        <span class="click-hint">Click to call</span>
                     </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="info-text">
-                            <h4>Email</h4>
-                            <p>info@mishalalnoortechnical.ae</p>
-                        </div>
+                </a>
+
+                <!-- WhatsApp Card -->
+                <a href="https://wa.me/971XXXXXXXXX?text=Hello%20MISHAL%20AL%20NOOR%20TECHNICAL%20SERVICES" target="_blank" class="contact-card whatsapp-card">
+                    <div class="card-icon">
+                        <i class="fab fa-whatsapp"></i>
                     </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="info-text">
-                            <h4>Working Hours</h4>
-                            <p>24/7 Emergency Service Available</p>
-                        </div>
+                    <div class="card-content">
+                        <h3>WhatsApp</h3>
+                        <p class="placeholder">+971 50 XXXX XXXX</p>
+                        <span class="click-hint">Click to chat</span>
                     </div>
-                </div>
+                </a>
+
+                <!-- Email Card -->
+                <a href="mailto:info@mishalalnoortechnical.ae" class="contact-card email-card">
+                    <div class="card-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Email</h3>
+                        <p class="placeholder">info@mishalalnoortechnical.ae</p>
+                        <span class="click-hint">Click to email</span>
+                    </div>
+                </a>
+
+                <!-- Location Card -->
+                <a href="https://maps.google.com/maps?q=Dubai,+UAE" target="_blank" class="contact-card location-card">
+                    <div class="card-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Location</h3>
+                        <p>Dubai, United Arab Emirates</p>
+                        <span class="click-hint">Click for map</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-section">
+                <h3 class="form-title">Send us a Message</h3>
                 <div class="contact-form-container">
                     <form class="contact-form" id="contact-form">
                         <div class="form-group">
