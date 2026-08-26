@@ -82,54 +82,70 @@ window.addEventListener('scroll', () => {
 
 const contactForm = document.getElementById('contact-form');
 
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    // Get form values
+
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const message = document.getElementById('message').value.trim();
-    
+
     // Validation
     if (!name || !email || !phone || !message) {
         showAlert('Please fill in all fields', 'error');
         return;
     }
-    
-    // Email validation
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (!emailRegex.test(email)) {
         showAlert('Please enter a valid email address', 'error');
         return;
     }
-    
-    // Phone validation (basic)
+
     const phoneRegex = /^[0-9\s\-\+\(\)]+$/;
+
     if (!phoneRegex.test(phone)) {
         showAlert('Please enter a valid phone number', 'error');
         return;
     }
-    
-    // If validation passes, show success message
-    showAlert('Thank you for your message! We will contact you soon.', 'success');
-    
-    // Log form data (In a real application, this would be sent to a server)
-    console.log('Form Data:', {
-        name: name,
-        email: email,
-        phone: phone,
-        message: message,
-        timestamp: new Date().toLocaleString()
-    });
-    
-    // Reset form
-    contactForm.reset();
-    
-    // Optional: Send to email service (requires backend setup)
-    // sendFormData(name, email, phone, message);
-});
 
+    // Send form to Web3Forms
+    try {
+        const formData = new FormData(contactForm);
+
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            showAlert(
+                'Thank you! Your message has been sent successfully.',
+                'success'
+            );
+
+            contactForm.reset();
+        } else {
+            showAlert(
+                'Sorry, your message could not be sent. Please try again.',
+                'error'
+            );
+
+            console.error('Web3Forms Error:', result);
+        }
+
+    } catch (error) {
+        console.error('Form Error:', error);
+
+        showAlert(
+            'Something went wrong. Please try again.',
+            'error'
+        );
+    }
+});
 // ============================================
 // ALERT NOTIFICATION SYSTEM
 // ============================================
