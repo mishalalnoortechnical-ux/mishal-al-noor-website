@@ -112,12 +112,29 @@ contactForm.addEventListener('submit', async (e) => {
 
     // Send form to Web3Forms
     try {
-        const formData = new FormData(contactForm);
-       formData.append('access_key', '991b5a5f-8828-41be-88aa-dbd68656c4b6');
-        const response = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            body: formData
-        });
+      const formData = new FormData(contactForm);
+
+formData.append('access_key', '991b5a5f-8828-41be-88aa-dbd68656c4b6');
+
+const object = Object.fromEntries(formData);
+const json = JSON.stringify(object);
+
+const response = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    },
+    body: json
+});
+const response = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    },
+    body: json
+});
 
         const result = await response.json();
 
